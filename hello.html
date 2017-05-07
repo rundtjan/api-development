@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>API Timestamp Microservice</title>
+    </head>
+<h1>API Timestamp Microservice</h1>
+<h3>Please pass a string as a parameter, and this service will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016)</h3>
+<ul>
+<li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
+<li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
+</ul>
+<h3>Example Usages:</h3>
+<p>https://api-developments-ruja.c9users.io/timestamp/December%2015,%202015</p>
+<p>https://api-developments-ruja.c9users.io/timestamp/1450137600</p>
+<h3>Example Output:</h3>
+<p>{ "unix": 1450137600, "natural": "December 15, 2015" }</p>
+</html>
