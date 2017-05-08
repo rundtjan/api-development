@@ -17,15 +17,15 @@ app.get('/timestamp/:date', function (req, res) {
 res.render('index', {date: JSON.stringify(dateResult)});    
   }
   else {
-    if (req.params.date.split(" ").length == 3) {var split = req.params.date.split(" ")};
-  if (req.params.date.split("%20").length == 3) {var split = req.params.date.split("%20"); console.log("split")};
-  if (split){
+    if (req.params.date.split(" ").length == 3) {var split = req.params.date.split(" ")}
+  else if (req.params.date.split("%20").length == 3) {var split = req.params.date.split("%20"); console.log("split")}
+  else {var split = []};
     if (months.indexOf(split[0]) > -1 && parseInt(split[1]) > 0 && parseInt(split[1]) < 32 && split[2].length == 4) 
     {var date = new Date(parseInt(split[2]), months.indexOf(split[0]), parseInt(split[1]))
     var dateResult = {"unix": date.getTime(), "natural": months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()}
      res.send(JSON.stringify(dateResult)) 
-    }
-  }
+    } else {var dateResult = {"unix": null, "natural": null}; res.send(JSON.stringify(dateResult))}
+
 }
   //res.send(req.params.date)
 })
